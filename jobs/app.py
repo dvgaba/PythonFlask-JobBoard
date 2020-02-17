@@ -8,7 +8,7 @@ app = Flask(__name__)
 def open_connection():
     connection = getattr(g, '_connection', None)
     if connection is None:
-        g._connection, connection = sqlite3.connect(PATH)
+        g._connection = connection = sqlite3.connect(PATH)
         connection.row_factory(sqlite3.Row)
     return connection
 
